@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>経験年数</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	
+	<h1>スキル</h1>
+	<form action="input-skill-servlet" method="post">
+		【お名前】<br>
+		<input type="text" name="name"><br>
+		【言語】<br>
+		<input type="checkbox" name="lang" value="Java">Java
+		<input type="checkbox" name="lang" value="C#">C#
+		<input type="checkbox" name="lang" value="PHP">PHP<br>
+		【経験】<br>
+		<select name="career">
+			<option value="1年">1年</option>
+			<option value="1年">２年</option>
+			<option value="1年">３年</option>
+			<option value="1年" selected>その他</option>
+		</select><br><br><br>
+		
+		<input type="submit" value="送信">
+		
+	</form>
+
+</body>
+</html>
