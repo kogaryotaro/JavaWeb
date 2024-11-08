@@ -35,7 +35,7 @@ public class InputSkillServlet extends HttpServlet {
 			langStr += "(未選択)";
 		}
 		
-		response.setContentType("text/html: charset=UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
 		out.println("<!DOCTYPE html>");
@@ -50,7 +50,6 @@ public class InputSkillServlet extends HttpServlet {
 		out.println(""+ nameStr + "<br><br>");
 		out.println(""+ langStr + "<br><br>");
 		out.println(""+ careerStr + "<br><br>");
-		out.println(""+ nameStr + "<br><br>");
 		out.println("</body>");
 		out.println("</html>");
 	}
