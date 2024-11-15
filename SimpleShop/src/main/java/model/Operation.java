@@ -57,5 +57,26 @@ public class Operation {
 	public void logoutProc(HttpSession session) {
 		session.invalidate();
 	}
+	
+//	商品追加処理
+//	idx = 商品一覧の選択した商品のidx
+	
+	public void addProd(int idx, HttpSession session) {
+		
+//		店舗情報・カート情報の取得
+		Store store = (Store) session.getAttribute("store");
+		Cart cart = (Cart) session.getAttribute("cart");
+		
+		if((store != null) && (cart != null)) {
+			
+//			カートに指定の商品を追加
+//			storeのgetListProd()で商品情報を取得して
+//			その商品情報をget(idx)で番号に応じた商品を取得する
+//			カートに追加する
+			cart.add(store.getListProd().get(idx));
+//			セッションに再度格納
+			session.setAttribute("cart", cart);
+		}
+	}
 
 }
