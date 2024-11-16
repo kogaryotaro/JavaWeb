@@ -28,9 +28,9 @@
 		if(listProd.size() > 0){
 	%>
 	
-			<table>
+			<table class="cart-list">
 			<tr>
-				<th>商品ID</th><th>商品名</th><th>価格</th>
+				<th></th><th>商品ID</th><th>商品名</th><th>価格</th>
 			</tr>
 	<%
 				for(int idx = 0; idx < listProd.size(); idx ++) {
@@ -38,6 +38,12 @@
 	%>
 	
 					<tr>
+					<td>
+						<form action="remove-prod-servlet" method="post">
+							<input type="hidden" name="idx" value="<%= idx%>">
+							<input type="submit" value="削除">
+						</form>
+					</td>
 						<td><%=prod.getId() %></td>
 						<td><%= prod.getName() %></td>
 						<td><%=prod.getPriceString()%></td>
@@ -46,6 +52,10 @@
 				}
 	%>
 			</table>
+			<br>
+			<form action="pay-servlet" method="post" >
+				<input type="submit" value="清算">
+			</form>
 	<%
 		} else{
 	%>

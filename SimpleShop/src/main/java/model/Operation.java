@@ -78,5 +78,41 @@ public class Operation {
 			session.setAttribute("cart", cart);
 		}
 	}
-
+	
+//	カートから商品削除
+	
+	public void removeProd(int idx, HttpSession session) {
+		
+//		カート内の商品情報をセッションから取得
+		Cart cart = (Cart) session.getAttribute("cart");
+		
+		if (cart != null) {
+			
+			cart.remove(idx);
+//			セッションに上書き
+			session.setAttribute("cart", cart);
+		}
+	}
+	
+		
+//		清算処理
+		
+		public void pay(HttpSession session) {
+			
+			Cart cart = (Cart) session.getAttribute("cart");
+			
+			if (cart != null) {
+				
+//				清算済みカート情報としてpayに格納
+				session.setAttribute("pay", cart);
+				
+//				カート情報の新規作成→セッションに格納
+				Cart newCart = new Cart(cart.getUserId(), new ArrayList<Product>());
+				session.setAttribute("cart", newCart);
+				
+			}
+			
+		}
 }
+
+
