@@ -23,7 +23,7 @@
 	
 		//まずリスト型の変数を作る
 		List<Product> listProd;
-		Cart payData = (Cart) session.getAttribute("cart");
+		Cart payData = (Cart) session.getAttribute("pay");
 		if (payData == null){
 			listProd = new ArrayList<Product>();
 		}else{
@@ -36,7 +36,7 @@
 		<table class="pay-list">
 		<tr>
 			<th>商品ID</th><th>商品名</th><th>価格</th>
-			
+		</tr>	
 	<%
 			for(Product prod : listProd){
 	%>
